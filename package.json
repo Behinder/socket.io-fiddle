@@ -1,16 +1,28 @@
 {
-  "name": "socket.io-fiddle",
-  "version": "0.0.1",
-  "description": "Simple fiddle for socket.io",
-  "author": "Damien Arrachequesne",
-  "license": "MIT",
+  "name": "singular-twitter-handler",
+  "version": "0.1.0",
   "dependencies": {
-    "express": "~4.17.1",
-    "socket.io": "^4.0.0",
-    "socket.io-client": "^4.0.0"
+    "axios": "^0.21.1",
+    "base-64": "^1.0.0",
+    "express": "^4.17.1",
+    "fs": "^0.0.1-security",
+    "moment": "^2.29.1",
+    "moment-timezone": "^0.5.33",
+    "nodemon": "^2.0.7",
+    "path": "^0.12.7",
+    "request": "^2.88.2",
+    "socket.io": "^3.1.2",
+    "socket.io-client": "^3.1.3",
+    "util": "^0.12.3"
   },
   "scripts": {
-    "start": "node server.js",
-    "client": "node client.js"
+    "start": "npm run development",
+    "server": "node server/server.js"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "engines": {
+    "node": "14.x"
   }
 }

@@ -1,11 +1,52 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
-    <title>Socket.IO Fiddle</title>
-  </head>
-  <body>
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="/main.js"></script>
-  </body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brad panel</title>
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" /> -->
+</head>
+<body>
+
+<h2>Tweet log</h2>
+<div class="log">
+  <textarea name="tweetcontent" id="tweetcontent" cols="100" rows="35" readonly>
+    Tralalalaassa
+  </textarea>
+</div>
+<style>
+  body {
+    font-size: 16px;
+  }
+  textarea {
+    font-size: 20px;
+  }
+  h2 {
+    font-size: 1.3rem;
+  }
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function () {
+  (function worker() {
+    $.ajax({
+      url: 'breakingnews.txt',
+      dataType:"text",
+      success: function (data) {
+        $("#tweetcontent").text(data);
+        console.log("Odpalone");
+      },
+      complete: function () {
+        // Schedule the next request when the current one's complete
+        setTimeout(worker, 300000);
+      }
+    });
+  })();
+  
+
+
+
+});
+</script>
+</body>
 </html>
